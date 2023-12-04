@@ -92,12 +92,7 @@ function App(): JSX.Element {
       <main>
         <div className="cards__wrapper">
           {cats.map((cat) => (
-            <CatCard
-              name={cat.name}
-              species={cat.species}
-              favFoods={cat.favFoods}
-              birthYear={cat.birthYear}
-            />
+            <CatCard catObject={cat} />
           ))}
         </div>
       </main>
