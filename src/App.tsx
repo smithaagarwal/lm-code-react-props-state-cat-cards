@@ -100,7 +100,7 @@ function App(): JSX.Element {
       <main>
         <div className="cards__wrapper">
           {cats.map((cat, index) => (
-            <CatCard catObject={cat} catIndex={index} />
+            <CatCard key={index} catObject={cat} catIndex={index} />
           ))}
         </div>
       </main>
