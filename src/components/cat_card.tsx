@@ -115,13 +115,13 @@ interface CatCardProps {
   catObject: Cat;
   catIndex: number;
 }
-const CatCard: React.FC<CatCardProps> = ({catObject,catIndex}) => {
+const CatCard: React.FC<CatCardProps> = ({ catObject, catIndex }) => {
   const { name, species, favFoods, birthYear } = catObject;
   return (
     <div className="card">
       <h3 className="card__text card__header">{name}</h3>
       <p className="card__text">{species}</p>
-      <p className="card__text">{favFoods}</p>
+      <p className="card__text">{favFoods.toString()}</p>
       <p className="card__text">{birthYear}</p>
       {catIndex < images.length && (
         <CatImage
