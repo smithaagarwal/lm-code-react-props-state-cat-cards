@@ -5,6 +5,9 @@ import Footer from "./components/footer";
 import { useState } from "react";
 import Cat from "./data/cat";
 import CatCard from "./components/cat_card";
+import Dog from "./data/dog";
+import { dogData } from "./data/dog-data";
+import DogCard from "./components/dog_card";
 
 function App(): JSX.Element {
   // JavaScript/TypeScript code can be inserted here!
@@ -90,17 +93,24 @@ function App(): JSX.Element {
   ]);
 
   let numOfCats = cats.length;
+  const [dogs, setDogs] = useState<Array<Dog>>(dogData);
+  let numOfDogs = dogs.length;
 
   console.log("Our pretties 😻: ", cats);
   return (
     <>
       <Navbar />
-      <Header numOfCats={numOfCats} />
+      <Header numOfCats={numOfCats} numOfDogs={numOfDogs} />
 
       <main>
         <div className="cards__wrapper">
           {cats.map((cat, index) => (
             <CatCard key={index} catObject={cat} catIndex={index} />
+          ))}
+        </div>
+        <div className="cards__wrapper">
+          {dogs.map((dog, index) => (
+            <DogCard key={index} dogObject={dog} dogIndex={index} />
           ))}
         </div>
       </main>
