@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import Cat from "../data/cat";
 interface AddCatProps {
   cats: Cat[];
@@ -6,25 +6,23 @@ interface AddCatProps {
 }
 
 const AddCat: React.FC<AddCatProps> = ({ cats, setCats }) => {
-  const [name, setName] = useState("");
-  const [species, setSpecies] = useState("");
-  const [favFoods, setFavFoods] = useState([""]);
-  const [birthYear, setBirthYear] = useState(2000);
+  const [name, setName] = useState<string>("");
+  const [species, setSpecies] = useState<string>("");
+  const [favFoods, setFavFoods] = useState<Array<string>>([]);
+  const [birthYear, setBirthYear] = useState<number>();
 
-  const handleSubmit = () => {
-    alert(cats.length);
-    alert(name + species + favFoods + birthYear);
-    setCats([
-      ...cats,
-      {
-        name: name,
-        species: species,
-        favFoods: favFoods,
-        birthYear: birthYear,
-      },
-    ]);
-    console.log(cats);
-    alert(cats.length);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (birthYear)
+      setCats([
+        ...cats,
+        {
+          name: name,
+          species: species,
+          favFoods: favFoods,
+          birthYear: birthYear,
+        },
+      ]);
   };
 
   return (
@@ -62,7 +60,7 @@ const AddCat: React.FC<AddCatProps> = ({ cats, setCats }) => {
         name="favFoods"
         value={favFoods}
         onChange={(event) => {
-          setFavFoods([event.target.value]);
+          setFavFoods(event.target.value.split(","));
         }}
       />
 
@@ -73,7 +71,7 @@ const AddCat: React.FC<AddCatProps> = ({ cats, setCats }) => {
         type="text"
         id="birthYear"
         name="birthYear"
-        value={birthYear}
+        value={birthYear || ""}
         onChange={(event) => {
           setBirthYear(parseInt(event.target.value, 10));
         }}
