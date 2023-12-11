@@ -48,6 +48,39 @@ body {
 	margin: 0.2em;
 }
 
+.forms__wrapper {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.form__container {
+	display: grid;
+	padding: 1.5em;
+	border: 6px solid var(--red);
+	max-width: 30%;
+	min-width: 12rem;
+	max-height: max-content;
+	border-radius: 7px;
+	background: var(--yellow);
+	margin-bottom: 1em;
+	margin: 0.5em;
+
+}
+
+.form__button {
+    background-color:var(--red);
+    color: var(--light);
+    border:none; 
+    border-radius:.5rem; 
+    padding:.5rem;
+    max-height:1.5rem; 
+    max-width: 8rem;
+	margin-top: 1rem;
+	margin-left: 5rem;
+
+  }
+
 .cards__wrapper {
 	display: flex;
 	justify-content: space-evenly;

@@ -105,9 +105,10 @@ function App(): JSX.Element {
       <Header numOfCats={numOfCats} numOfDogs={numOfDogs} />
 
       <main>
-        <AddCat cats={cats} setCats={setCats} />
-        <AddDog dogs={dogs} setDogs={setDogs} />
-
+        <div className="forms__wrapper">
+          <AddCat cats={cats} setCats={setCats} />
+          <AddDog dogs={dogs} setDogs={setDogs} />
+        </div>
         <div className="cards__wrapper">
           {cats.map((cat, index) => (
             <CatCard key={index} catObject={cat} catIndex={index} />
