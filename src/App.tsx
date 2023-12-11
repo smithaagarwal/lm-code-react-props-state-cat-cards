@@ -9,6 +9,7 @@ import Dog from "./data/dog";
 import { dogData } from "./data/dog-data";
 import DogCard from "./components/dog_card";
 import AddCat from "./components/add_cat";
+import AddDog from "./components/add_dog";
 
 function App(): JSX.Element {
   // JavaScript/TypeScript code can be inserted here!
@@ -102,6 +103,7 @@ function App(): JSX.Element {
     <>
       <Navbar />
       <AddCat cats={cats} setCats={setCats} />
+      <AddDog dogs={dogs} setDogs={setDogs} />
       <Header numOfCats={numOfCats} numOfDogs={numOfDogs} />
 
       <main>
