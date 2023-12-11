@@ -41,6 +41,13 @@ body {
 	margin-top: 0.25em;
 }
 
+.form__title {
+	color: var(--navy);
+	font-family: 'Cattino';
+	font-size: 1.7rem;
+	margin: 0.2em;
+}
+
 .cards__wrapper {
 	display: flex;
 	justify-content: space-evenly;

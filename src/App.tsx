@@ -102,11 +102,12 @@ function App(): JSX.Element {
   return (
     <>
       <Navbar />
-      <AddCat cats={cats} setCats={setCats} />
-      <AddDog dogs={dogs} setDogs={setDogs} />
       <Header numOfCats={numOfCats} numOfDogs={numOfDogs} />
 
       <main>
+        <AddCat cats={cats} setCats={setCats} />
+        <AddDog dogs={dogs} setDogs={setDogs} />
+
         <div className="cards__wrapper">
           {cats.map((cat, index) => (
             <CatCard key={index} catObject={cat} catIndex={index} />

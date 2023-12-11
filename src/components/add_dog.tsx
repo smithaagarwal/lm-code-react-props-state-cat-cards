@@ -1,5 +1,9 @@
 import { useState } from "react";
 import Dog from "../data/dog";
+import Name from "./name";
+import Species from "./species";
+import FavFoods from "./fav_foods";
+import BirthYear from "./birth_year";
 interface AddDogProps {
   dogs: Dog[];
   setDogs: React.Dispatch<React.SetStateAction<Array<Dog>>>;
@@ -26,59 +30,17 @@ const AddDog: React.FC<AddDogProps> = ({ dogs, setDogs }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label className="card__text" htmlFor="name">
-        Name:
-      </label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      />
+    <div>
+      <h3 className="form__title">Enter the details of the Dog:</h3>
+      <form onSubmit={handleSubmit}>
+        <Name name={name} setName={setName} />
+        <Species species={species} setSpecies={setSpecies} />
+        <FavFoods favFoods={favFoods} setFavFoods={setFavFoods} />
+        <BirthYear birthYear={birthYear} setBirthYear={setBirthYear} />
 
-      <label className="card__text" htmlFor="species">
-        Species:
-      </label>
-      <input
-        type="text"
-        id="species"
-        name="species"
-        value={species}
-        onChange={(event) => {
-          setSpecies(event.target.value);
-        }}
-      />
-
-      <label className="card__text" htmlFor="favFoods">
-        Fav food:
-      </label>
-      <input
-        type="text"
-        id="favFoods"
-        name="favFoods"
-        value={favFoods}
-        onChange={(event) => {
-          setFavFoods(event.target.value.split(","));
-        }}
-      />
-
-      <label className="card__text" htmlFor="birthYear">
-        Birth Year:
-      </label>
-      <input
-        type="text"
-        id="birthYear"
-        name="birthYear"
-        value={birthYear || ""}
-        onChange={(event) => {
-          setBirthYear(parseInt(event.target.value, 10));
-        }}
-      />
-
-      <button type="submit">Submit</button>
-    </form>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 
